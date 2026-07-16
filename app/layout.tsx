@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Inter, JetBrains_Mono, Nunito } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const spaceGrotesk = Space_Grotesk({
+const nunito = Nunito({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-nunito",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -16,10 +17,23 @@ const inter = Inter({
   display: "swap",
 });
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Coefficient — Real-time AI copilot for verifying physical work",
+  title: "MCP Doctor — Score MCP agent readiness",
   description:
-    "Real-time AI copilot that guides procedures, verifies each step, and captures audit-ready evidence.",
+    "The easiest way to score MCP agent readiness. Open-source CLI — inspect, benchmark, and eval before production.",
+  openGraph: {
+    title: "MCP Doctor",
+    description:
+      "Prove agents can actually use your MCP. Static scorecard, task evals, friction score.",
+    url: "https://coefficient.work",
+    siteName: "MCP Doctor",
+  },
 };
 
 export default function RootLayout({
@@ -28,8 +42,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
-      <body className="min-h-screen">
+    <html
+      lang="en"
+      className={`${nunito.variable} ${inter.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="min-h-screen bg-white font-body text-black antialiased">
         <Header />
         {children}
         <Footer />

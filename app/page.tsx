@@ -1,240 +1,206 @@
-import Image from "next/image";
-import Hero from "@/components/Hero";
-
-const REGISTER_URL = "https://tally.so/r/WO5oMk";
+import Link from "next/link";
+import InstallPill from "@/components/InstallPill";
+import TerminalCard from "@/components/TerminalCard";
+import WaitlistForm from "@/components/WaitlistForm";
+import StethoscopeIcon from "@/components/icons/StethoscopeIcon";
+import {
+  BENCHMARK_ROWS,
+  COMPARISON_ROWS,
+  DOCS_URL,
+  FAQ,
+  GITHUB_REPO,
+  INSTALL_CMD,
+} from "@/lib/constants";
 
 export default function HomePage() {
   return (
-    <main>
-      <Hero />
-
-      <section className="section how-it-works" id="how-it-works">
-        <div className="section-inner">
-          <div className="how-it-works-layout">
-            <div className="how-it-works-image">
-              <Image
-                src="/images/chest-mount-phone.png"
-                alt="Smartphone mounted on chest harness for hands-free use"
-                width={480}
-                height={640}
-                className="how-it-works-img"
-              />
-            </div>
-            <div className="how-it-works-content">
-              <h2 className="section-title">How it works</h2>
-              <div className="steps">
-                <article className="step-card">
-                  <span className="step-num">1</span>
-                  <h3 className="step-title">Wear and connect</h3>
-                  <p className="step-desc">
-                    The engineer wears a body-mounted camera and uses a mobile
-                    device. No manual checklists.
-                  </p>
-                </article>
-                <article className="step-card">
-                  <span className="step-num">2</span>
-                  <h3 className="step-title">Follow the procedure</h3>
-                  <p className="step-desc">
-                    Coefficient follows the approved procedure step-by-step, so
-                    work stays on track without second visits.
-                  </p>
-                </article>
-                <article className="step-card">
-                  <span className="step-num">3</span>
-                  <h3 className="step-title">Verify in real time</h3>
-                  <p className="step-desc">
-                    The system verifies correct execution and flags mistakes
-                    instantly — no write-ups after the fact.
-                  </p>
-                </article>
-                <article className="step-card">
-                  <span className="step-num">4</span>
-                  <h3 className="step-title">Evidence and reports</h3>
-                  <p className="step-desc">
-                    Evidence and reports are generated automatically after the
-                    job. Time saved, every time.
-                  </p>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="section why-this-matters section-alt"
-        id="why-this-matters"
-      >
-        <div className="section-inner">
-          <h2 className="section-title">Why this matters</h2>
-          <p className="section-tagline">
-            Turning physical work into instant, auditable evidence — without
-            slowing engineers down.
+    <main className="bg-white">
+      <section className="section-gap px-6 pt-8 text-center">
+        <div className="mx-auto max-w-[720px] space-y-6">
+          <h1 className="font-display text-[28px] font-medium leading-tight text-black sm:text-[36px]">
+            The easiest way to score MCP agent readiness
+          </h1>
+          <InstallPill command={INSTALL_CMD} className="mx-auto" />
+          <p className="text-sm text-[#737373]">
+            paste this in terminal, or{" "}
+            <a href={DOCS_URL} className="underline hover:text-black">
+              read the docs
+            </a>
           </p>
-          <ul className="numbered-list">
-            <li>
-              <span className="num">01</span>
-              <p>
-                Time is lost today to admin, supervision, rework, and training.
-                Coefficient reduces that overhead at the source.
-              </p>
-            </li>
-            <li>
-              <span className="num">02</span>
-              <p>
-                Onboarding and retaining skilled engineers is difficult.
-                Guided procedures and instant verification help scale junior
-                engineers faster.
-              </p>
-            </li>
-            <li>
-              <span className="num">03</span>
-              <p>
-                Procedural errors and missed steps are costly. Real-time
-                verification catches issues before they become rework or
-                incidents.
-              </p>
-            </li>
-            <li>
-              <span className="num">04</span>
-              <p>
-                Proving work was done correctly is a burden. Coefficient
-                captures audit-ready evidence automatically.
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="section positioning" id="positioning">
-        <div className="section-inner">
-          <h2 className="section-title">Built for real work</h2>
-          <ul className="positioning-list">
-            <li>Built for real environments, not simulations.</li>
-            <li>Designed for enterprise procedures (MOPs / SOPs).</li>
-            <li>Works during the job, not just before or after.</li>
-          </ul>
-        </div>
-      </section>
-
-      <section
-        className="section coming-soon section-alt"
-        id="coming-soon"
-      >
-        <div className="section-inner">
-          <h2 className="section-title">
-            <span className="badge">Coming soon</span> What&apos;s next
-          </h2>
-          <ul className="coming-soon-list">
-            <li>Support for additional trades and procedures</li>
-            <li>Deeper analytics across sites and teams</li>
-            <li>
-              Integration with existing maintenance and compliance systems
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="section trust-signals" id="trust">
-        <div className="section-inner">
-          <h2 className="section-title">Trust and traction</h2>
-          <div className="trust-content">
-            <p>
-              The founders have built training and assessment software for
-              safety-critical industries. An early prototype already verifies
-              HVAC procedures from video. We are currently working with
-              industry contacts to shape pilots.
-            </p>
+          <a
+            href={GITHUB_REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white hover:bg-[#090909]"
+          >
+            Get started
+          </a>
+          <div className="flex justify-center pt-2 text-[#737373]">
+            <StethoscopeIcon className="h-10 w-10" />
           </div>
         </div>
       </section>
 
-      <section className="section about-us" id="about">
-        <div className="section-inner">
-          <h2 className="section-title">Who we are</h2>
-          <div className="about-content">
-            <p>
-              Coefficient is built by a team with deep experience in training,
-              assessment, and software for high-stakes physical work.
-            </p>
-            <div className="founders-photo">
-              <div className="founders-photo-circle">
-                <Image
-                  src="/images/founders.png"
-                  alt="Louis and Jonty, co-founders of Coefficient"
-                  width={240}
-                  height={240}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="founders-grid">
-              <article className="founder-card">
-                <h3>Louis</h3>
-                <p className="founder-role">Product & co-founder</p>
-                <p>
-                  Louis has spent his career at the intersection of education,
-                  product, and industrial systems — starting as a secondary
-                  school teacher, then moving into product leadership and
-                  founding teams. Most recently, he led product at a simulation
-                  and training company building software used in safety-critical
-                  environments across heavy industry and infrastructure.
-                </p>
-              </article>
-              <article className="founder-card">
-                <h3>Jonty</h3>
-                <p className="founder-role">Engineering & co-founder</p>
-                <p>
-                  Jonty is a hands-on technical builder with experience
-                  delivering complex systems for training, assessment, and
-                  operational workflows. He has worked across engineering and
-                  product roles, shipping real software used by professionals in
-                  regulated, real-world contexts.
-                </p>
-              </article>
-            </div>
-            <p>
-              <strong>Together, we&apos;ve:</strong>
-            </p>
-            <ul className="about-list">
+      <section className="section-gap border-t border-[#e5e5e5] px-6">
+        <div className="mx-auto grid max-w-[720px] gap-10 md:grid-cols-2 md:items-start">
+          <div className="space-y-4">
+            <h2 className="font-display text-2xl font-semibold">
+              Score any MCP before agents hit production
+            </h2>
+            <ul className="list-inside list-disc space-y-2 text-[#737373]">
               <li>
-                Built training and assessment platforms used in classrooms and
-                industrial settings
+                Static scorecard - tokens, descriptions, destructive ops (no API
+                key)
               </li>
-              <li>Led and coordinated multi-disciplinary technical teams</li>
               <li>
-                Shipped software where procedure adherence, evidence, and
-                correctness matter
+                Task eval - real agents complete realistic tasks (BYOK via AI
+                Gateway)
+              </li>
+              <li>
+                Agent friction - retries, wrong tools, auth recovery scored 0-10
               </li>
             </ul>
-            <p>
-              We&apos;re now applying those lessons to a harder problem: helping
-              engineers complete physical work faster, with fewer mistakes, and
-              without the overhead of manual supervision or paperwork.
-            </p>
-            <p>
-              Coefficient exists because we&apos;ve seen first-hand how much
-              time is lost between &quot;doing the work&quot; and &quot;proving
-              the work was done correctly&quot; — and we believe AI can close
-              that gap.
-            </p>
+            <Link href="/benchmark" className="text-sm font-medium underline">
+              See benchmark results
+            </Link>
+          </div>
+          <TerminalCard
+            lines={[
+              { text: "$ npx github:louisreid/mcp-doctor inspect puppeteer -o report.md" },
+              { text: "" },
+              { text: "Grade: B | Tools: 12 | Tokens: 2,840", tone: "warn" },
+              { text: "" },
+              { text: "Recommended Improvements", tone: "muted" },
+              { text: "  navigate: description too short" },
+              { text: "  screenshot: missing input schema hints" },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section className="section-gap px-6" id="early-access">
+        <div className="mx-auto max-w-[720px] space-y-8">
+          <h2 className="text-center font-display text-2xl font-semibold">
+            Start local. Scale with eval.
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-xl border border-[#e5e5e5] p-6">
+              <h3 className="font-display text-lg font-semibold">Free (local)</h3>
+              <ul className="mt-4 space-y-2 text-sm text-[#737373]">
+                <li>inspect and benchmark - no API key</li>
+                <li>list reads your Cursor mcp.json</li>
+                <li>Markdown reports you own</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-[#e5e5e5] p-6">
+              <h3 className="font-display text-lg font-semibold">Eval + CI</h3>
+              <ul className="mt-4 space-y-2 text-sm text-[#737373]">
+                <li>eval via Vercel AI Gateway</li>
+                <li>GitHub Action scorecard (coming)</li>
+                <li>Private benchmark + design partner access</li>
+              </ul>
+              <div className="mt-6">
+                <WaitlistForm />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section cta-section section-alt" id="cta">
-        <div className="section-inner cta-inner">
+      <section className="section-gap border-t border-[#e5e5e5] px-6">
+        <div className="mx-auto max-w-[720px] space-y-4">
+          <h2 className="font-display text-2xl font-semibold">Your MCP stays yours</h2>
+          <ul className="list-inside list-disc space-y-2 text-[#737373]">
+            <li>Reports are local markdown - nothing uploaded for inspect</li>
+            <li>eval uses your own AI Gateway key - we do not store prompts</li>
+            <li>Open source CLI - MIT license, audit the code</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="section-gap px-6">
+        <div className="mx-auto max-w-[720px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">
+            State of MCP Quality 2026
+          </h2>
+          <div className="overflow-x-auto rounded-xl border border-[#e5e5e5]">
+            <table className="w-full text-left text-sm">
+              <thead>
+                <tr className="border-b border-[#e5e5e5] text-[#737373]">
+                  <th className="px-4 py-3 font-medium">Server</th>
+                  <th className="px-4 py-3 font-medium">Grade</th>
+                  <th className="px-4 py-3 font-medium">Tools</th>
+                  <th className="px-4 py-3 font-medium">Tokens</th>
+                </tr>
+              </thead>
+              <tbody>
+                {BENCHMARK_ROWS.map((row) => (
+                  <tr key={row.server} className="border-b border-[#e5e5e5] last:border-0">
+                    <td className="px-4 py-3">{row.server}</td>
+                    <td className="px-4 py-3 font-mono">{row.grade}</td>
+                    <td className="px-4 py-3">{row.tools}</td>
+                    <td className="px-4 py-3">{row.tokens.toLocaleString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <Link href="/benchmark" className="text-sm font-medium underline">
+            Read full benchmark
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-gap border-t border-[#e5e5e5] px-6">
+        <div className="mx-auto max-w-[720px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">Where MCP Doctor fits</h2>
+          <div className="overflow-x-auto rounded-xl border border-[#e5e5e5]">
+            <table className="w-full text-left text-sm">
+              <tbody>
+                {COMPARISON_ROWS.map((row) => (
+                  <tr key={row.need} className="border-b border-[#e5e5e5] last:border-0">
+                    <td className="px-4 py-3 text-[#737373]">{row.need}</td>
+                    <td
+                      className={`px-4 py-3 ${"highlight" in row && row.highlight ? "font-semibold text-black" : ""}`}
+                    >
+                      {row.use}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-gap px-6">
+        <div className="mx-auto max-w-[720px]">
+          <h2 className="mb-6 font-display text-2xl font-semibold">FAQ</h2>
+          <dl className="divide-y divide-[#e5e5e5]">
+            {FAQ.map((item) => (
+              <div key={item.q} className="py-4">
+                <dt className="font-medium text-black">{item.q}</dt>
+                <dd className="mt-2 text-[#737373]">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="section-gap border-t border-[#e5e5e5] px-6 pb-20 text-center">
+        <div className="mx-auto max-w-[720px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">
+            Get started with MCP Doctor
+          </h2>
           <a
-            href={REGISTER_URL}
-            className="btn btn-primary btn-large"
-            aria-label="Register your interest"
+            href={GITHUB_REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white hover:bg-[#090909]"
           >
-            Register your interest
+            Get started
           </a>
-          <p className="cta-supporting">
-            Join early pilots and help shape the future of AI-assisted physical
-            work.
-          </p>
+          <InstallPill command={INSTALL_CMD} className="mx-auto" />
         </div>
       </section>
     </main>
