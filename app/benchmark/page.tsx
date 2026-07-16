@@ -76,7 +76,7 @@ export default function BenchmarkPage() {
 
         <section className="space-y-4">
           <h2 className="font-display text-lg font-semibold">Run it yourself</h2>
-          <InstallPill command="npx github:louisreid/mcp-doctor benchmark -o ./reports" />
+          <InstallPill command="npx github:coefficient-ai/mcp-doctor benchmark -o ./reports" />
           <p className="text-sm text-[#737373]">
             Full report on{" "}
             <a

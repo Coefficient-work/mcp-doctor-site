@@ -2,7 +2,7 @@ import Link from "next/link";
 import InstallPill from "@/components/InstallPill";
 import TerminalCard from "@/components/TerminalCard";
 import WaitlistForm from "@/components/WaitlistForm";
-import StethoscopeIcon from "@/components/icons/StethoscopeIcon";
+import BrandMark from "@/components/icons/BrandMark";
 import {
   BENCHMARK_ROWS,
   COMPARISON_ROWS,
@@ -36,7 +36,7 @@ export default function HomePage() {
             Get started
           </a>
           <div className="flex justify-center pt-2 text-[#737373]">
-            <StethoscopeIcon className="h-10 w-10" />
+            <BrandMark className="h-10 w-10" />
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@ export default function HomePage() {
           </div>
           <TerminalCard
             lines={[
-              { text: "$ npx github:louisreid/mcp-doctor inspect puppeteer -o report.md" },
+              { text: "$ npx github:coefficient-ai/mcp-doctor inspect puppeteer -o report.md" },
               { text: "" },
               { text: "Grade: B | Tools: 12 | Tokens: 2,840", tone: "warn" },
               { text: "" },

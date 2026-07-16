@@ -1,14 +1,14 @@
-export const GITHUB_REPO = "https://github.com/louisreid/mcp-doctor";
-export const DOCS_URL = "https://github.com/louisreid/mcp-doctor#readme";
+export const GITHUB_REPO = "https://github.com/coefficient-ai/mcp-doctor";
+export const DOCS_URL = "https://github.com/coefficient-ai/mcp-doctor#readme";
 export const FRIEND_GUIDE_URL =
-  "https://github.com/louisreid/mcp-doctor/blob/main/docs/FRIEND-GUIDE.md";
+  "https://github.com/coefficient-ai/mcp-doctor/blob/main/docs/FRIEND-GUIDE.md";
 export const BENCHMARK_REPO_URL =
-  "https://github.com/louisreid/mcp-doctor/blob/main/examples/reports/STATE-OF-MCP-2026.md";
+  "https://github.com/coefficient-ai/mcp-doctor/blob/main/examples/reports/STATE-OF-MCP-2026.md";
 export const CONTACT_EMAIL = "hello@coefficient.work";
 export const ROUNDTABLE_URL = "https://roundtable.co.uk";
 
 export const INSTALL_CMD =
-  "npx github:louisreid/mcp-doctor inspect memory -o report.md";
+  "npx github:coefficient-ai/mcp-doctor inspect memory -o report.md";
 
 export const BENCHMARK_ROWS = [
   { server: "MCP Filesystem", grade: "A", tools: 14, tokens: 1997 },
