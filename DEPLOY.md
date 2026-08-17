@@ -6,7 +6,7 @@ Do not deploy production from this branch unless the GitHub org, Vercel GitHub c
 
 Preview deploys from a draft PR are fine.
 
-Staging is `https://staging.coefficient.work` (git branch `codex/mcp-doctor-rebrand` on the `coefficient-landing` Vercel project). It is gated by HTTP Basic Auth via `middleware.ts` and the `STAGING_USER` / `STAGING_PASSWORD` project env vars. Do not enable Vercel SSO or Advanced Deployment Protection on that project, or visitors without a Vercel login cannot use the shareable password. Production `coefficient.work` stays on the separate `coefficient` project until an explicit cutover.
+Staging is `https://staging.coefficient.work` (git branch `codex/mcp-doctor-rebrand` on the `coefficient-landing` Vercel project). HTTP Basic Auth in `middleware.ts` gates that hostname and `*.vercel.app` URLs for this project (`STAGING_USER` / `STAGING_PASSWORD`). Do not enable Vercel SSO or Advanced Deployment Protection on that project, or visitors without a Vercel login cannot use the shareable password. Production `coefficient.work` stays on the separate `coefficient` project until an explicit cutover.
 
 ## After the coefficient-work org exists
 

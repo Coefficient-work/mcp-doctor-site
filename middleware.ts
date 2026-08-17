@@ -33,9 +33,13 @@ function credentialsMatch(
   );
 }
 
+function shouldGate(host: string): boolean {
+  return host === STAGING_HOST || host.endsWith(".vercel.app");
+}
+
 export function middleware(req: NextRequest) {
   const host = (req.headers.get("host") || "").split(":")[0].toLowerCase();
-  if (host !== STAGING_HOST) {
+  if (!shouldGate(host)) {
     return NextResponse.next();
   }
 
