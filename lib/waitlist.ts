@@ -1,10 +1,13 @@
+/**
+ * Waitlist helpers kept for a later restore after the legal operator is verified.
+ * Collection is currently disabled: app/api/waitlist/route.ts rejects all posts.
+ */
 export type WaitlistPayload = {
   email: string;
   name?: string;
   company?: string;
   role?: string;
   interest?: string;
-  mcpUrl?: string;
   consent: boolean;
   website?: string;
   source?: string;
@@ -43,65 +46,8 @@ export function validateWaitlistPayload(body: unknown): {
       company: b.company ? String(b.company).trim() : undefined,
       role: b.role ? String(b.role) : undefined,
       interest: b.interest ? String(b.interest) : "early-access",
-      mcpUrl: b.mcpUrl ? String(b.mcpUrl).trim() : undefined,
       consent: true,
       source: b.source ? String(b.source) : "direct",
     },
   };
-}
-
-export async function saveWaitlistSignup(data: WaitlistPayload): Promise<void> {
-  const url = process.env.POSTGRES_URL ?? process.env.DATABASE_URL;
-
-  if (!url) {
-    if (process.env.NODE_ENV === "development") {
-      console.info("[waitlist] dev signup (no DB):", data);
-      return;
-    }
-    throw new Error(
-      "Waitlist database not configured. Set POSTGRES_URL on Vercel.",
-    );
-  }
-
-  const { sql } = await import("@vercel/postgres");
-
-  await sql`
-    INSERT INTO waitlist_signups (email, name, company, role, interest, mcp_url, source)
-    VALUES (
-      ${data.email},
-      ${data.name ?? null},
-      ${data.company ?? null},
-      ${data.role ?? null},
-      ${data.interest ?? "early-access"},
-      ${data.mcpUrl ?? null},
-      ${data.source ?? "direct"}
-    )
-    ON CONFLICT (email) DO UPDATE SET
-      name = EXCLUDED.name,
-      company = EXCLUDED.company,
-      role = EXCLUDED.role,
-      interest = EXCLUDED.interest,
-      mcp_url = EXCLUDED.mcp_url,
-      source = EXCLUDED.source
-  `;
-}
-
-export async function notifyWaitlistSignup(data: WaitlistPayload): Promise<void> {
-  const key = process.env.RESEND_API_KEY;
-  const to = process.env.WAITLIST_NOTIFY_EMAIL ?? "hello@coefficient.work";
-  if (!key) return;
-
-  await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: "MCP Doctor <onboarding@resend.dev>",
-      to: [to],
-      subject: `Waitlist: ${data.email}`,
-      text: JSON.stringify(data, null, 2),
-    }),
-  });
 }

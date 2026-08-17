@@ -3,23 +3,35 @@
 @tailwind utilities;
 
 :root {
-  --colors-text-primary: #000000;
-  --colors-text-secondary: #737373;
-  --colors-text-muted: #a3a3a3;
+  --ink: #0b0f14;
+  --paper: #f7f8f5;
+  --signal: #16a36a;
+  --muted: #5c6560;
+  --line: #d7dbd4;
+  --status-warn: #c47b16;
+  --status-fail: #c0362c;
 }
 
 body {
   font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .font-display {
-  font-family: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-mono {
-  font-family: var(--font-mono), ui-monospace, monospace;
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 .section-gap {
-  @apply py-16 md:py-[88px];
+  @apply py-16 md:py-24;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
 }
