@@ -2,37 +2,29 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        display: ["var(--font-nunito)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       colors: {
-        surface: {
-          card: "var(--colors-surface-card)",
-          base: "var(--colors-surface-base)",
-          dark: "var(--colors-surface-dark)",
-        },
-        text: {
-          primary: "var(--colors-text-primary)",
-          secondary: "var(--colors-text-secondary)",
-          muted: "var(--colors-text-muted)",
-        },
-        status: {
-          critical: "var(--colors-status-critical)",
-          success: "var(--colors-status-success)",
-          warning: "var(--colors-status-warning)",
-          ok: "var(--colors-status-ok)",
-        },
+        ink: "#0B0F14",
+        paper: "#F7F8F5",
+        signal: "#16A36A",
+        muted: "#5C6560",
+        line: "#D7DBD4",
+        warn: "#C47B16",
+        fail: "#C0362C",
       },
     },
   },
   plugins: [],
 };
+
 export default config;

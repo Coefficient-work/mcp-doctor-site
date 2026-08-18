@@ -3,74 +3,67 @@ import InstallPill from "@/components/InstallPill";
 import TerminalCard from "@/components/TerminalCard";
 import WaitlistForm from "@/components/WaitlistForm";
 import BrandMark from "@/components/icons/BrandMark";
+import { CURRENT_BENCHMARK } from "@/lib/benchmark";
 import {
-  BENCHMARK_ROWS,
   COMPARISON_ROWS,
+  CONTACT_EMAIL,
   DOCS_URL,
   FAQ,
   GITHUB_REPO,
+  HERO_HEADLINE,
+  HERO_SUBHEAD,
   INSTALL_CMD,
+  LICENSE_URL,
+  NAMESPACE_NOTE,
+  NPM_PACKAGE,
 } from "@/lib/constants";
 
 export default function HomePage() {
   return (
-    <main className="bg-white">
-      <section className="section-gap px-6 pt-8 text-center">
-        <div className="mx-auto max-w-[720px] space-y-6">
-          <h1 className="font-display text-[28px] font-medium leading-tight text-black sm:text-[36px]">
-            The easiest way to score MCP agent readiness
-          </h1>
-          <InstallPill command={INSTALL_CMD} className="mx-auto" />
-          <p className="text-sm text-[#737373]">
-            paste this in terminal, or{" "}
-            <a href={DOCS_URL} className="underline hover:text-black">
-              read the docs
-            </a>
-          </p>
-          <a
-            href={GITHUB_REPO}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white hover:bg-[#090909]"
-          >
-            Get started
-          </a>
-          <div className="flex justify-center pt-2 text-[#737373]">
-            <BrandMark className="h-10 w-10" />
+    <main>
+      <section className="section-gap px-6 pt-10 text-center">
+        <div className="mx-auto max-w-[760px] space-y-6">
+          <div className="flex justify-center">
+            <BrandMark className="h-12 w-12" title="MCP Doctor" />
           </div>
+          <p className="text-sm font-medium uppercase tracking-[0.14em] text-muted">
+            MCP Doctor by Coefficient
+          </p>
+          <h1 className="font-display text-[32px] font-semibold leading-tight tracking-tight text-ink sm:text-[42px]">
+            {HERO_HEADLINE}
+          </h1>
+          <p className="text-lg text-muted">{HERO_SUBHEAD}</p>
+          <InstallPill command={INSTALL_CMD} className="mx-auto" />
+          <p className="text-sm text-muted">
+            Local inspect. MIT license.{" "}
+            <a href={DOCS_URL} className="underline hover:text-ink">
+              Read the docs
+            </a>
+            .
+          </p>
         </div>
       </section>
 
-      <section className="section-gap border-t border-[#e5e5e5] px-6">
-        <div className="mx-auto grid max-w-[720px] gap-10 md:grid-cols-2 md:items-start">
+      <section className="section-gap border-t border-line px-6">
+        <div className="mx-auto grid max-w-[760px] gap-10 md:grid-cols-2 md:items-start">
           <div className="space-y-4">
-            <h2 className="font-display text-2xl font-semibold">
-              Score any MCP before agents hit production
-            </h2>
-            <ul className="list-inside list-disc space-y-2 text-[#737373]">
-              <li>
-                Static scorecard - tokens, descriptions, destructive ops (no API
-                key)
-              </li>
-              <li>
-                Task eval - real agents complete realistic tasks (BYOK via AI
-                Gateway)
-              </li>
-              <li>
-                Agent friction - retries, wrong tools, auth recovery scored 0-10
-              </li>
+            <h2 className="font-display text-2xl font-semibold">What the CLI does</h2>
+            <ul className="list-inside list-disc space-y-2 text-muted">
+              <li>Inspect schemas, tools, and token cost without an API key</li>
+              <li>Run optional task evals with your own model key</li>
+              <li>Write a markdown readiness report you keep locally</li>
             </ul>
             <Link href="/benchmark" className="text-sm font-medium underline">
-              See benchmark results
+              See dated benchmark observations
             </Link>
           </div>
           <TerminalCard
             lines={[
-              { text: "$ npx github:coefficient-ai/mcp-doctor inspect puppeteer -o report.md" },
+              { text: `$ npx ${NPM_PACKAGE}@latest inspect puppeteer -o report.md` },
               { text: "" },
-              { text: "Grade: B | Tools: 12 | Tokens: 2,840", tone: "warn" },
+              { text: "Grade: B | Tools: 7 | Tokens: 612", tone: "success" },
               { text: "" },
-              { text: "Recommended Improvements", tone: "muted" },
+              { text: "Recommended improvements", tone: "muted" },
               { text: "  navigate: description too short" },
               { text: "  screenshot: missing input schema hints" },
             ]}
@@ -78,26 +71,64 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-gap px-6" id="early-access">
-        <div className="mx-auto max-w-[720px] space-y-8">
-          <h2 className="text-center font-display text-2xl font-semibold">
-            Start local. Scale with eval.
-          </h2>
+      <section className="section-gap px-6" id="trust">
+        <div className="mx-auto max-w-[760px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">Trust evidence</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <TrustCard
+              title="Inspect stays local"
+              body="inspect writes markdown on your machine. It does not upload MCP names, URLs, or reports."
+              href="/data-flow"
+            />
+            <TrustCard
+              title="MIT license"
+              body="The CLI is open source. Read the code before you run it."
+              href={LICENSE_URL}
+              external
+            />
+            <TrustCard
+              title="Dated benchmarks"
+              body={`${CURRENT_BENCHMARK.title} ${CURRENT_BENCHMARK.version}, observed ${CURRENT_BENCHMARK.observedAt}, CLI ${CURRENT_BENCHMARK.cliVersion}.`}
+              href="/benchmark"
+            />
+            <TrustCard
+              title="Security contact"
+              body={`${CONTACT_EMAIL} — a mailbox, not a claimed security program.`}
+              href="/security"
+            />
+          </div>
+          <p className="text-sm text-muted">
+            See the{" "}
+            <Link href="/data-flow" className="underline hover:text-ink">
+              data-flow
+            </Link>{" "}
+            and{" "}
+            <Link href="/changelog" className="underline hover:text-ink">
+              changelog
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      <section className="section-gap border-t border-line px-6" id="early-access">
+        <div className="mx-auto max-w-[760px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">Start local</h2>
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-[#e5e5e5] p-6">
-              <h3 className="font-display text-lg font-semibold">Free (local)</h3>
-              <ul className="mt-4 space-y-2 text-sm text-[#737373]">
-                <li>inspect and benchmark - no API key</li>
+            <div className="rounded-lg border border-line bg-white p-6">
+              <h3 className="font-display text-lg font-semibold">Free CLI</h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted">
+                <li>inspect and benchmark — no API key</li>
                 <li>list reads your Cursor mcp.json</li>
-                <li>Markdown reports you own</li>
+                <li>markdown reports you own</li>
               </ul>
             </div>
-            <div className="rounded-xl border border-[#e5e5e5] p-6">
-              <h3 className="font-display text-lg font-semibold">Eval + CI</h3>
-              <ul className="mt-4 space-y-2 text-sm text-[#737373]">
-                <li>eval via Vercel AI Gateway</li>
-                <li>GitHub Action scorecard (coming)</li>
-                <li>Private benchmark + design partner access</li>
+            <div className="rounded-lg border border-line bg-white p-6">
+              <h3 className="font-display text-lg font-semibold">Hosted CI later</h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted">
+                <li>eval via your own AI Gateway key</li>
+                <li>GitHub Action scorecard is not shipping yet</li>
+                <li>No checkout and no waitlist until those exist</li>
               </ul>
               <div className="mt-6">
                 <WaitlistForm />
@@ -107,26 +138,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-gap border-t border-[#e5e5e5] px-6">
-        <div className="mx-auto max-w-[720px] space-y-4">
-          <h2 className="font-display text-2xl font-semibold">Your MCP stays yours</h2>
-          <ul className="list-inside list-disc space-y-2 text-[#737373]">
-            <li>Reports are local markdown - nothing uploaded for inspect</li>
-            <li>eval uses your own AI Gateway key - we do not store prompts</li>
-            <li>Open source CLI - MIT license, audit the code</li>
-          </ul>
-        </div>
-      </section>
-
       <section className="section-gap px-6">
-        <div className="mx-auto max-w-[720px] space-y-6">
-          <h2 className="font-display text-2xl font-semibold">
-            State of MCP Quality 2026
-          </h2>
-          <div className="overflow-x-auto rounded-xl border border-[#e5e5e5]">
+        <div className="mx-auto max-w-[760px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">{CURRENT_BENCHMARK.title}</h2>
+          <p className="text-sm text-muted">
+            Observed {CURRENT_BENCHMARK.observedAt} · CLI {CURRENT_BENCHMARK.cliVersion} · commit{" "}
+            <span className="font-mono">{CURRENT_BENCHMARK.commit}</span>
+          </p>
+          <div className="overflow-x-auto rounded-lg border border-line bg-white">
             <table className="w-full text-left text-sm">
               <thead>
-                <tr className="border-b border-[#e5e5e5] text-[#737373]">
+                <tr className="border-b border-line text-muted">
                   <th className="px-4 py-3 font-medium">Server</th>
                   <th className="px-4 py-3 font-medium">Grade</th>
                   <th className="px-4 py-3 font-medium">Tools</th>
@@ -134,8 +156,8 @@ export default function HomePage() {
                 </tr>
               </thead>
               <tbody>
-                {BENCHMARK_ROWS.map((row) => (
-                  <tr key={row.server} className="border-b border-[#e5e5e5] last:border-0">
+                {CURRENT_BENCHMARK.rows.map((row) => (
+                  <tr key={row.server} className="border-b border-line last:border-0">
                     <td className="px-4 py-3">{row.server}</td>
                     <td className="px-4 py-3 font-mono">{row.grade}</td>
                     <td className="px-4 py-3">{row.tools}</td>
@@ -146,22 +168,22 @@ export default function HomePage() {
             </table>
           </div>
           <Link href="/benchmark" className="text-sm font-medium underline">
-            Read full benchmark
+            Methodology and failures
           </Link>
         </div>
       </section>
 
-      <section className="section-gap border-t border-[#e5e5e5] px-6">
-        <div className="mx-auto max-w-[720px] space-y-6">
+      <section className="section-gap border-t border-line px-6">
+        <div className="mx-auto max-w-[760px] space-y-6">
           <h2 className="font-display text-2xl font-semibold">Where MCP Doctor fits</h2>
-          <div className="overflow-x-auto rounded-xl border border-[#e5e5e5]">
+          <div className="overflow-x-auto rounded-lg border border-line bg-white">
             <table className="w-full text-left text-sm">
               <tbody>
                 {COMPARISON_ROWS.map((row) => (
-                  <tr key={row.need} className="border-b border-[#e5e5e5] last:border-0">
-                    <td className="px-4 py-3 text-[#737373]">{row.need}</td>
+                  <tr key={row.need} className="border-b border-line last:border-0">
+                    <td className="px-4 py-3 text-muted">{row.need}</td>
                     <td
-                      className={`px-4 py-3 ${"highlight" in row && row.highlight ? "font-semibold text-black" : ""}`}
+                      className={`px-4 py-3 ${"highlight" in row && row.highlight ? "font-semibold text-ink" : ""}`}
                     >
                       {row.use}
                     </td>
@@ -174,35 +196,67 @@ export default function HomePage() {
       </section>
 
       <section className="section-gap px-6">
-        <div className="mx-auto max-w-[720px]">
+        <div className="mx-auto max-w-[760px]">
           <h2 className="mb-6 font-display text-2xl font-semibold">FAQ</h2>
-          <dl className="divide-y divide-[#e5e5e5]">
+          <dl className="divide-y divide-line">
             {FAQ.map((item) => (
               <div key={item.q} className="py-4">
-                <dt className="font-medium text-black">{item.q}</dt>
-                <dd className="mt-2 text-[#737373]">{item.a}</dd>
+                <dt className="font-medium text-ink">{item.q}</dt>
+                <dd className="mt-2 text-muted">{item.a}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      <section className="section-gap border-t border-[#e5e5e5] px-6 pb-20 text-center">
-        <div className="mx-auto max-w-[720px] space-y-6">
-          <h2 className="font-display text-2xl font-semibold">
-            Get started with MCP Doctor
-          </h2>
+      <section className="section-gap border-t border-line px-6 pb-20 text-center">
+        <div className="mx-auto max-w-[760px] space-y-6">
+          <h2 className="font-display text-2xl font-semibold">Run it locally</h2>
+          <InstallPill command={INSTALL_CMD} className="mx-auto" />
+          <p className="text-xs text-muted">{NAMESPACE_NOTE}</p>
           <a
             href={GITHUB_REPO}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-full bg-black px-6 py-2.5 text-sm font-medium text-white hover:bg-[#090909]"
+            className="inline-block text-sm font-medium underline"
           >
-            Get started
+            Source on GitHub
           </a>
-          <InstallPill command={INSTALL_CMD} className="mx-auto" />
         </div>
       </section>
     </main>
+  );
+}
+
+function TrustCard({
+  title,
+  body,
+  href,
+  external,
+}: {
+  title: string;
+  body: string;
+  href: string;
+  external?: boolean;
+}) {
+  const className =
+    "block rounded-lg border border-line bg-white p-5 text-left hover:border-ink";
+  const inner = (
+    <>
+      <h3 className="font-display text-base font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-muted">{body}</p>
+    </>
+  );
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {inner}
+    </Link>
   );
 }

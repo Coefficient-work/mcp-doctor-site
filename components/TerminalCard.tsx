@@ -7,25 +7,23 @@ type Props = {
 
 export default function TerminalCard({ lines, className = "" }: Props) {
   return (
-    <div
-      className={`overflow-hidden rounded-xl border border-[#e5e5e5] bg-white ${className}`}
-    >
-      <div className="flex items-center gap-2 border-b border-[#e5e5e5] px-4 py-3">
-        <span className="h-3 w-3 rounded-full bg-[#ff5f56]" />
-        <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
-        <span className="h-3 w-3 rounded-full bg-[#27c93f]" />
+    <div className={`overflow-hidden rounded-lg border border-line bg-ink ${className}`}>
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+        <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+        <span className="h-2.5 w-2.5 rounded-full bg-signal" />
       </div>
-      <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-black">
+      <pre className="overflow-x-auto p-4 font-mono text-sm leading-relaxed text-paper">
         {lines.map((line, i) => (
           <div
             key={i}
             className={
               line.tone === "muted"
-                ? "text-[#737373]"
+                ? "text-white/55"
                 : line.tone === "warn"
-                  ? "text-[#ffbd2e]"
+                  ? "text-warn"
                   : line.tone === "success"
-                    ? "text-[#27c93f]"
+                    ? "text-signal"
                     : undefined
             }
           >

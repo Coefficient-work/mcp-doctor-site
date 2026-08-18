@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@vercel/analytics";
 
 type Props = {
   command: string;
@@ -14,6 +15,7 @@ export default function InstallPill({ command, className = "" }: Props) {
     try {
       await navigator.clipboard.writeText(command);
       setCopied(true);
+      track("install_command_copy");
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       /* ignore */
@@ -22,18 +24,18 @@ export default function InstallPill({ command, className = "" }: Props) {
 
   return (
     <div
-      className={`flex w-full max-w-xl items-center gap-2 rounded-full border border-[#e5e5e5] bg-[#fafafa] px-4 py-3 sm:px-5 ${className}`}
+      className={`flex w-full max-w-3xl items-center gap-2 rounded-lg border border-line bg-white px-4 py-3 ${className}`}
     >
-      <code className="min-w-0 flex-1 break-all font-mono text-sm text-black sm:text-base">
+      <code className="min-w-0 flex-1 break-all font-mono text-sm text-ink sm:text-[15px]">
         {command}
       </code>
       <button
         type="button"
         onClick={copy}
-        className="shrink-0 rounded-full px-3 py-1.5 text-sm font-medium text-[#737373] transition hover:bg-white hover:text-black"
+        className="shrink-0 rounded-md px-3 py-1.5 text-sm font-medium text-muted transition hover:bg-paper hover:text-ink"
         aria-label="Copy command"
       >
-        {copied ? "Copied!" : "Copy"}
+        {copied ? "Copied" : "Copy"}
       </button>
     </div>
   );
