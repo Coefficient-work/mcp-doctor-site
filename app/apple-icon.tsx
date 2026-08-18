@@ -23,64 +23,53 @@ export default function AppleIcon() {
             width: 120,
             height: 120,
             display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
             position: "relative",
           }}
         >
-          <div style={{ position: "absolute", width: 72, height: 8, background: "#F7F8F5" }} />
-          <div style={{ position: "absolute", width: 8, height: 72, background: "#F7F8F5" }} />
           <div
             style={{
               position: "absolute",
-              width: 14,
+              width: 42,
               height: 14,
-              borderRadius: 14,
-              background: "#F7F8F5",
-              top: 16,
-              left: 53,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 14,
-              height: 14,
-              borderRadius: 14,
-              background: "#F7F8F5",
-              bottom: 16,
-              left: 53,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 14,
-              height: 14,
-              borderRadius: 14,
-              background: "#F7F8F5",
-              top: 53,
-              left: 16,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 14,
-              height: 14,
-              borderRadius: 14,
-              background: "#F7F8F5",
-              top: 53,
-              right: 16,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 56,
-              height: 10,
               background: "#16A36A",
-              transform: "rotate(-40deg) translate(6px, 10px)",
+              borderRadius: 14,
+              left: 14,
+              top: 64,
+              transform: "rotate(48deg)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              width: 78,
+              height: 14,
+              background: "#16A36A",
+              borderRadius: 14,
+              left: 38,
+              top: 50,
+              transform: "rotate(-52deg)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              width: 18,
+              height: 18,
+              borderRadius: 18,
+              background: "#F7F8F5",
+              left: 18,
+              top: 58,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              width: 18,
+              height: 18,
+              borderRadius: 18,
+              background: "#F7F8F5",
+              left: 86,
+              top: 22,
             }}
           />
         </div>

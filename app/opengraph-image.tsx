@@ -36,15 +36,46 @@ export default function OpenGraphImage() {
               position: "relative",
             }}
           >
-            <div style={{ position: "absolute", width: 36, height: 2, background: "#F7F8F5" }} />
-            <div style={{ position: "absolute", width: 2, height: 36, background: "#F7F8F5" }} />
             <div
               style={{
                 position: "absolute",
-                width: 28,
-                height: 4,
+                width: 18,
+                height: 5,
                 background: "#16A36A",
-                transform: "rotate(-40deg) translate(4px, 8px)",
+                borderRadius: 5,
+                transform: "rotate(48deg) translate(-8px, 6px)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: 32,
+                height: 5,
+                background: "#16A36A",
+                borderRadius: 5,
+                transform: "rotate(-50deg) translate(4px, -2px)",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: 8,
+                height: 8,
+                borderRadius: 8,
+                background: "#F7F8F5",
+                left: 14,
+                top: 34,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                width: 8,
+                height: 8,
+                borderRadius: 8,
+                background: "#F7F8F5",
+                right: 12,
+                top: 16,
               }}
             />
           </div>
