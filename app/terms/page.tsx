@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
-import { CONTACT_EMAIL, SITE_URL } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  OPERATOR_COMPANY_NO,
+  OPERATOR_LEGAL_NAME,
+  OPERATOR_OFFICE,
+  OPERATOR_TRADING_AS,
+  OPERATOR_VAT,
+  PRODUCT_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Terms",
@@ -11,7 +20,7 @@ export default function TermsPage() {
   return (
     <main className="mx-auto max-w-[760px] space-y-6 px-6 py-16">
       <h1 className="text-3xl font-semibold tracking-tight">Terms</h1>
-      <p className="text-sm text-muted">Last updated: 17 Aug 2026</p>
+      <p className="text-sm text-muted">Last updated: 19 Aug 2026</p>
       <p>
         These terms cover the public website at coefficient.work and the
         open-source MCP Doctor CLI. They do not invent accounts, paid plans, or a
@@ -21,9 +30,9 @@ export default function TermsPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">1. What this is</h2>
         <p>
-          MCP Doctor by Coefficient is an early-stage open-source CLI and this
-          informational website. There is no public claim of incorporation, team
-          size, customers, uptime, or certifications.
+          {PRODUCT_NAME} is an early-stage open-source CLI and this informational
+          website. There is no public claim of team size, customers, uptime, or
+          certifications.
         </p>
       </section>
 
@@ -71,9 +80,10 @@ export default function TermsPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">7. Operator and law</h2>
         <p>
-          The legal operator is not documented yet. These terms will be updated
-          with operator name, jurisdiction, and governing law when that exists.
-          Until then, continued use of the site is at your own risk.
+          The operator is {OPERATOR_LEGAL_NAME} (England and Wales, company no.{" "}
+          {OPERATOR_COMPANY_NO}), trading as {OPERATOR_TRADING_AS}. Registered
+          office: {OPERATOR_OFFICE}. VAT: {OPERATOR_VAT}. These terms are governed
+          by the laws of England and Wales.
         </p>
         <p>
           Contact:{" "}

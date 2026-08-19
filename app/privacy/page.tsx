@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CONTACT_EMAIL, GITHUB_REPO, SITE_URL } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  GITHUB_REPO,
+  OPERATOR_COMPANY_NO,
+  OPERATOR_LEGAL_NAME,
+  OPERATOR_OFFICE,
+  OPERATOR_TRADING_AS,
+  OPERATOR_VAT,
+  PRODUCT_NAME,
+  SITE_URL,
+} from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Privacy",
-  description: "What MCP Doctor by Coefficient actually collects today.",
+  description: "What MCP Doctor actually collects today.",
   alternates: { canonical: `${SITE_URL}/privacy` },
 };
 
@@ -12,7 +22,7 @@ export default function PrivacyPage() {
   return (
     <main className="mx-auto max-w-[760px] space-y-6 px-6 py-16">
       <h1 className="text-3xl font-semibold tracking-tight">Privacy</h1>
-      <p className="text-sm text-muted">Last updated: 17 Aug 2026</p>
+      <p className="text-sm text-muted">Last updated: 19 Aug 2026</p>
       <p>
         This page describes the data flows that exist now for the MCP Doctor
         website and CLI. It does not describe a future product.
@@ -21,10 +31,9 @@ export default function PrivacyPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Operator</h2>
         <p>
-          MCP Doctor is an early-stage open-source project endorsed as MCP Doctor
-          by Coefficient. The legal operator / controller is not documented yet.
-          Until that is verified, this site does not collect waitlist emails and
-          the CLI does not send product telemetry.
+          {PRODUCT_NAME} is operated by {OPERATOR_LEGAL_NAME} (England and Wales,
+          company no. {OPERATOR_COMPANY_NO}), trading as {OPERATOR_TRADING_AS}.
+          Registered office: {OPERATOR_OFFICE}. VAT: {OPERATOR_VAT}.
         </p>
         <p>
           Contact:{" "}
@@ -32,6 +41,7 @@ export default function PrivacyPage() {
             {CONTACT_EMAIL}
           </a>
         </p>
+        <p>Waitlist collection and product telemetry remain off.</p>
       </section>
 
       <section className="space-y-3">
@@ -69,7 +79,7 @@ export default function PrivacyPage() {
           </li>
           <li>
             Anonymous CLI telemetry is designed but ingestion is off until a
-            verified operator and privacy notice exist.
+            matching privacy notice exists for that flow.
           </li>
         </ul>
       </section>
