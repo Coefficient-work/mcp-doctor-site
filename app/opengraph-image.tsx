@@ -1,10 +1,47 @@
 import { ImageResponse } from "next/og";
-import { HERO_HEADLINE, PRODUCT_BYLINE } from "@/lib/constants";
+import { HERO_HEADLINE, PRODUCT_NAME } from "@/lib/constants";
 
 export const runtime = "edge";
-export const alt = "MCP Doctor by Coefficient";
+export const alt = "MCP Doctor";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+function MedicalPlus({ sizePx, fill }: { sizePx: number; fill: string }) {
+  const thickness = Math.round(sizePx * 0.22);
+  const length = Math.round(sizePx * 0.7);
+  const radius = Math.max(2, Math.round(thickness * 0.22));
+  return (
+    <div
+      style={{
+        width: sizePx,
+        height: sizePx,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          width: thickness,
+          height: length,
+          background: fill,
+          borderRadius: radius,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          width: length,
+          height: thickness,
+          background: fill,
+          borderRadius: radius,
+        }}
+      />
+    </div>
+  );
+}
 
 export default function OpenGraphImage() {
   return new ImageResponse(
@@ -29,58 +66,15 @@ export default function OpenGraphImage() {
               height: 72,
               borderRadius: 18,
               background: "#0B0F14",
-              border: "1px solid #243042",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              position: "relative",
             }}
           >
-            <div
-              style={{
-                position: "absolute",
-                width: 18,
-                height: 5,
-                background: "#16A36A",
-                borderRadius: 5,
-                transform: "rotate(48deg) translate(-8px, 6px)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                width: 32,
-                height: 5,
-                background: "#16A36A",
-                borderRadius: 5,
-                transform: "rotate(-50deg) translate(4px, -2px)",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                width: 8,
-                height: 8,
-                borderRadius: 8,
-                background: "#F7F8F5",
-                left: 14,
-                top: 34,
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                width: 8,
-                height: 8,
-                borderRadius: 8,
-                background: "#F7F8F5",
-                right: 12,
-                top: 16,
-              }}
-            />
+            <MedicalPlus sizePx={56} fill="#F7F8F5" />
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ fontSize: 36, fontWeight: 650 }}>{PRODUCT_BYLINE}</div>
+            <div style={{ fontSize: 36, fontWeight: 650 }}>{PRODUCT_NAME}</div>
             <div style={{ fontSize: 20, color: "#8B938C" }}>Open-source MCP readiness CLI</div>
           </div>
         </div>
@@ -91,7 +85,7 @@ export default function OpenGraphImage() {
           style={{
             fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
             fontSize: 22,
-            color: "#16A36A",
+            color: "#F7F8F5",
           }}
         >
           npx @coefficient-work/mcp-doctor@latest inspect memory -o report.md

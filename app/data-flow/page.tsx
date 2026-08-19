@@ -19,7 +19,7 @@ export default function DataFlowPage() {
           <code className="font-mono text-sm">inspect</code> connects from your
           machine to the MCP server you name, scores the schema, and can write
           <code className="font-mono text-sm"> report.md</code> next to you. Nothing
-          is uploaded to Coefficient.
+          is uploaded off your machine.
         </p>
       </section>
 
@@ -27,7 +27,7 @@ export default function DataFlowPage() {
         <h2 className="text-xl font-semibold">Eval</h2>
         <p>
           Optional. Uses a model key you provide. Prompts, tasks, and reports stay
-          with you and that model provider. Coefficient does not store them.
+          with you and that model provider. MCP Doctor does not store them.
         </p>
       </section>
 

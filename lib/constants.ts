@@ -1,10 +1,16 @@
 export const SITE_URL = "https://coefficient.work";
 export const PRODUCT_NAME = "MCP Doctor";
+/** Quiet footer credit only — not used in header, titles, or metadata. */
 export const PARENT_BRAND = "Coefficient";
-export const PRODUCT_BYLINE = "MCP Doctor by Coefficient";
+export const PRODUCT_CREDIT = `A project by ${PARENT_BRAND}`;
 export const CONTACT_EMAIL = "hello@coefficient.work";
 
-/** Locked public namespace. The GitHub org is not created yet, so these URLs may 404. */
+export const OPERATOR_LEGAL_NAME = "Roundtable Design Ltd";
+export const OPERATOR_TRADING_AS = "Roundtable Studio";
+export const OPERATOR_COMPANY_NO = "11924746";
+export const OPERATOR_VAT = "GB346997830";
+export const OPERATOR_OFFICE = "86-90 Paul Street, London EC2A 4NE";
+
 export const GITHUB_ORG = "coefficient-work";
 export const GITHUB_REPO = "https://github.com/coefficient-work/mcp-doctor";
 export const GITHUB_SITE_REPO = "https://github.com/coefficient-work/mcp-doctor-site";
@@ -22,7 +28,7 @@ export const OPERATOR_VERIFIED = false;
 export const WAITLIST_ENABLED = false;
 
 export const NAMESPACE_NOTE =
-  "Public GitHub and npm identity is coefficient-work. That organization is not created yet, so repository and package links may 404 until it exists. Do not install the unrelated unscoped mcp-doctor package.";
+  "Public GitHub and npm identity is coefficient-work. The scoped npm package is not published yet; do not install the unrelated unscoped mcp-doctor package.";
 
 export const HERO_HEADLINE =
   "Know whether agents can use your MCP before you ship.";
@@ -48,7 +54,7 @@ export const FAQ = [
   },
   {
     q: "Who operates this?",
-    a: "MCP Doctor is an early-stage open-source project endorsed as MCP Doctor by Coefficient. The legal operator is not documented yet, so the site does not collect waitlist emails or enable product telemetry.",
+    a: "Roundtable Design Ltd (England and Wales, company no. 11924746), trading as Roundtable Studio. Waitlist collection and product telemetry stay off.",
   },
   {
     q: "Pricing?",

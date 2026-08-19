@@ -1,4 +1,4 @@
-# MCP Doctor by Coefficient
+# MCP Doctor
 
 Public site for [coefficient.work](https://coefficient.work).
 
@@ -6,10 +6,11 @@ MCP Doctor is an early-stage open-source CLI that inspects MCP servers and write
 
 ## Identity
 
-- Product: **MCP Doctor by Coefficient**
-- GitHub/npm namespace: **coefficient-work** (the GitHub org is not created yet, so links may 404)
+- Product: **MCP Doctor**
+- GitHub/npm namespace: **coefficient-work**
 - Contact: hello@coefficient.work
-- Waitlist, telemetry ingestion, and checkout are **off** until the legal operator is verified
+- Operator (legal): Roundtable Design Ltd — details on Privacy and Terms
+- Waitlist, telemetry ingestion, and checkout are **off**
 
 ## Run locally
 
@@ -28,4 +29,4 @@ npm run build
 
 ## Deploy
 
-Production deploy stays gated. This branch is the rebrand implementation; connecting Vercel to a transferred GitHub repo is a separate browser step.
+Production is the `main` branch of this repo on the Vercel project `coefficient-landing`. Keep waitlist, Stripe, and telemetry ingestion off.

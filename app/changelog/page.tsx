@@ -3,15 +3,20 @@ import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: "Changelog",
-  description: "Public changes to MCP Doctor by Coefficient.",
+  description: "Public changes to MCP Doctor.",
   alternates: { canonical: `${SITE_URL}/changelog` },
 };
 
 const ENTRIES = [
   {
+    date: "2026-08-19",
+    title: "Product name is MCP Doctor",
+    body: "Dropped parent-brand labelling from header, titles, and metadata. Replaced the three-color readiness tile with a monotone medical plus. Waitlist, telemetry ingestion, and checkout stay off.",
+  },
+  {
     date: "2026-08-17",
-    title: "Public identity: MCP Doctor by Coefficient",
-    body: "Landing copy, mark, and metadata now match the approved product brand. Waitlist collection is off until the legal operator is verified. GitHub/npm links use coefficient-work and may 404 until that org exists.",
+    title: "Public identity: MCP Doctor",
+    body: "Landing copy, mark, and metadata now match the product brand. Waitlist collection is off. GitHub/npm links use coefficient-work.",
   },
   {
     date: "2026-07-16",

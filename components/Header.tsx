@@ -1,17 +1,16 @@
 import Link from "next/link";
 import BrandMark from "./icons/BrandMark";
-import { DOCS_URL, PRODUCT_BYLINE } from "@/lib/constants";
+import { DOCS_URL, PRODUCT_NAME } from "@/lib/constants";
 
 export default function Header() {
   return (
     <header className="border-b border-line bg-paper">
       <div className="mx-auto flex max-w-[760px] items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center gap-2 text-ink">
-          <BrandMark className="h-7 w-7" title={PRODUCT_BYLINE} />
+          <BrandMark className="h-7 w-7" title={PRODUCT_NAME} surface="paper" />
           <span className="font-display text-base font-semibold tracking-tight">
-            MCP Doctor
+            {PRODUCT_NAME}
           </span>
-          <span className="hidden text-sm text-muted sm:inline">by Coefficient</span>
         </Link>
         <nav className="flex items-center gap-5 text-sm font-medium">
           <Link href="/benchmark" className="hover:underline">

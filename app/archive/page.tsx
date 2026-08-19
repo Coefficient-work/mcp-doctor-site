@@ -14,7 +14,7 @@ export default function ArchivePage() {
         This domain previously described a field-work copilot concept. The public
         product identity is now{" "}
         <Link href="/" className="underline hover:text-ink">
-          MCP Doctor by Coefficient
+          MCP Doctor
         </Link>
         .
       </p>

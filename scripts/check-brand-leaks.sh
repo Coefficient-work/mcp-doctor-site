@@ -22,4 +22,18 @@ if grep -R -n -E -I "$PATTERN" "${EXISTING[@]}" \
   exit 1
 fi
 
+# "by Coefficient" is allowed only as the quiet footer credit (plus the constant that feeds it).
+BYLINE_HITS="$(grep -R -n -E -I 'by Coefficient' "${EXISTING[@]}" \
+  --exclude-dir=node_modules \
+  --exclude-dir=.next \
+  --exclude-dir=.git || true)"
+if [[ -n "$BYLINE_HITS" ]]; then
+  FILTERED="$(printf '%s\n' "$BYLINE_HITS" | grep -v -E 'components/Footer\.tsx|lib/constants\.ts' || true)"
+  if [[ -n "$FILTERED" ]]; then
+    printf '%s\n' "$FILTERED" >&2
+    echo "by Coefficient is only allowed in the footer credit." >&2
+    exit 1
+  fi
+fi
+
 echo "Brand leak check passed."

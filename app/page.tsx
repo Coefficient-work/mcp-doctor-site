@@ -24,11 +24,8 @@ export default function HomePage() {
       <section className="section-gap px-6 pt-10 text-center">
         <div className="mx-auto max-w-[760px] space-y-6">
           <div className="flex justify-center">
-            <BrandMark className="h-12 w-12" title="MCP Doctor" />
+            <BrandMark className="h-12 w-12" title="MCP Doctor" surface="paper" />
           </div>
-          <p className="text-sm font-medium uppercase tracking-[0.14em] text-muted">
-            MCP Doctor by Coefficient
-          </p>
           <h1 className="font-display text-[32px] font-semibold leading-tight tracking-tight text-ink sm:text-[42px]">
             {HERO_HEADLINE}
           </h1>

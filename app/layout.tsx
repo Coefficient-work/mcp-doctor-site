@@ -8,7 +8,8 @@ import {
   CONTACT_EMAIL,
   HERO_HEADLINE,
   HERO_SUBHEAD,
-  PRODUCT_BYLINE,
+  OPERATOR_LEGAL_NAME,
+  PRODUCT_NAME,
   SITE_URL,
 } from "@/lib/constants";
 
@@ -27,12 +28,12 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${PRODUCT_BYLINE} — MCP readiness CLI`,
-    template: `%s — ${PRODUCT_BYLINE}`,
+    default: `${PRODUCT_NAME} — MCP readiness CLI`,
+    template: `%s — ${PRODUCT_NAME}`,
   },
   description: `${HERO_HEADLINE} ${HERO_SUBHEAD}`,
-  applicationName: "MCP Doctor",
-  authors: [{ name: "Coefficient", url: SITE_URL }],
+  applicationName: PRODUCT_NAME,
+  authors: [{ name: OPERATOR_LEGAL_NAME, url: SITE_URL }],
   keywords: [
     "MCP",
     "Model Context Protocol",
@@ -45,14 +46,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE_URL,
-    siteName: PRODUCT_BYLINE,
-    title: PRODUCT_BYLINE,
+    siteName: PRODUCT_NAME,
+    title: PRODUCT_NAME,
     description: HERO_HEADLINE,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: PRODUCT_BYLINE,
+    title: PRODUCT_NAME,
     description: HERO_HEADLINE,
   },
 };
@@ -60,7 +61,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "MCP Doctor",
+  name: PRODUCT_NAME,
   applicationCategory: "DeveloperApplication",
   operatingSystem: "macOS, Linux, Windows",
   license: "https://opensource.org/licenses/MIT",
@@ -73,7 +74,7 @@ const jsonLd = {
   },
   author: {
     "@type": "Organization",
-    name: "Coefficient",
+    name: OPERATOR_LEGAL_NAME,
     url: SITE_URL,
     email: CONTACT_EMAIL,
   },

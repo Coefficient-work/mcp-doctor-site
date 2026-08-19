@@ -1,12 +1,19 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, GITHUB_REPO, NAMESPACE_NOTE } from "@/lib/constants";
+import {
+  CONTACT_EMAIL,
+  GITHUB_REPO,
+  NAMESPACE_NOTE,
+  PRODUCT_CREDIT,
+  PRODUCT_NAME,
+} from "@/lib/constants";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-paper py-12">
       <div className="mx-auto max-w-[760px] space-y-4 px-6 text-center text-sm text-muted">
-        <p className="text-ink">MCP Doctor by Coefficient</p>
-        <p>An early-stage open-source project. Not incorporated as a public claim on this site.</p>
+        <p className="text-ink">{PRODUCT_NAME}</p>
+        <p className="text-xs">{PRODUCT_CREDIT}</p>
+        <p>An early-stage open-source project.</p>
         <p>
           <a href={`mailto:${CONTACT_EMAIL}`} className="underline hover:text-ink">
             {CONTACT_EMAIL}
