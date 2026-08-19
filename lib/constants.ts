@@ -28,7 +28,7 @@ export const OPERATOR_VERIFIED = false;
 export const WAITLIST_ENABLED = false;
 
 export const NAMESPACE_NOTE =
-  "Public GitHub and npm identity is coefficient-work. The scoped npm package is not published yet; do not install the unrelated unscoped mcp-doctor package.";
+  "Public GitHub and npm identity is coefficient-work. Install @coefficient-work/mcp-doctor; do not install the unrelated unscoped mcp-doctor package.";
 
 export const HERO_HEADLINE =
   "Know whether agents can use your MCP before you ship.";
